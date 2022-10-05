@@ -1,17 +1,19 @@
-import { Dinner, Member } from "./interface";
-import member from "./member";
+import { Dinner, Food, Member } from "./interface";
+import { food, member } from "./constants";
 
 const dinner: Dinner = {
-  member: member,
-  shuffle(array: Member[]){
+  member,
+  food,
+  shuffle(array: Member[] | Food[]){
     array.sort(() => Math.random() - 0.5);
     return array;
   },
-  organize(array: Member[]){
-    const dinnerMember = this.shuffle(array);
-    
-    console.log(`결과 ${dinnerMember[0].name}, ${dinnerMember[1].name}`);
+  organize({member, food}:Dinner){
+    const [firstMember, secondMember] = this.shuffle(member);
+    const [dinnerFood] = this.shuffle(food);
+
+    console.log(`${firstMember.name}, ${secondMember.name} 둘이서 ${dinnerFood.name} 먹기!`);
   },
 };
 
-dinner.organize(dinner.member);
+dinner.organize(dinner);
