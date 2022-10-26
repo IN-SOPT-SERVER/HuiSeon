@@ -29,14 +29,14 @@ router.post("/like/:movieId", (req: Request, res:Response)=>{
   if(!movieId){
     return res.status(404).json({ 
       status: 404,
-      message: "정보 조회 실패",
+      message: "좋아요 실패",
     });
   }
 
   if(typeof isLiked !== 'boolean'){
     return res.status(400).json({ 
       status: 400,
-      message: "정보 조회 실패",
+      message: "좋아요 실패",
     });
   }
 
@@ -55,14 +55,14 @@ router.post("/bookmark/:movieId", (req: Request, res:Response)=>{
   if(!movieId){
     return res.status(404).json({ 
       status: 404,
-      message: "정보 조회 실패",
+      message: "찜하기 실패",
     });
   }
 
   if(typeof isBookmark !== 'boolean'){
     return res.status(400).json({ 
       status: 400,
-      message: "정보 조회 실패",
+      message: "찜하기 실패",
     });
   }
 
