@@ -3,9 +3,9 @@ import { Movie } from "../type/type";
 export const movie: Movie = {
     "1":{
         _id: "1",
-		thumbnail:"https://huiseon-bucket.s3.ap-northeast-2.amazonaws.com/surinam.jpeg",
-		titleImage: "https://huiseon-bucket.s3.ap-northeast-2.amazonaws.com/surinamLogo.png",
-		videoUrl: "https://huiseon-bucket.s3.ap-northeast-2.amazonaws.com/surinam.jpeg",
+		thumbnail:process.env.SURINAM_IMG_S3_URL,
+		titleImage: process.env.SURINAM_LOGO_S3_URL,
+		videoUrl: process.env.SURINAM_IMG_S3_URL,
 		movieInfo: {
 			title: "수리남",
 			isOriginal: true,
@@ -27,9 +27,9 @@ export const movie: Movie = {
     },
     "2":{
         _id: "2",
-		thumbnail:"https://huiseon-bucket.s3.ap-northeast-2.amazonaws.com/skycastle.jpeg",
-		titleImage: "https://huiseon-bucket.s3.ap-northeast-2.amazonaws.com/skycastleLogo.png",
-		videoUrl: "https://huiseon-bucket.s3.ap-northeast-2.amazonaws.com/skycastle.jpeg",
+		thumbnail:process.env.SKYCASTLE_IMG_S3_URL,
+		titleImage: process.env.SKYCASTLE_LOGO_S3_URL,
+		videoUrl: process.env.SKYCASTLE_IMG_S3_URL,
 		movieInfo: {
 			title: "스카이 캐슬",
 			isOriginal: false,

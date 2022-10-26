@@ -14,7 +14,7 @@ router.get("/:movieId", (req: Request, res: Response) => {
   }
 
   const data = movie[movieId];
-
+  console.log(process.env.SURINAM_LOGO_S3_URL);
   return res.status(200).json({ 
     status: 200,
     message: "넷플릭스 컨텐츠 조회 성공",

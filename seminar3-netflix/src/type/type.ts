@@ -4,9 +4,9 @@ export interface Movie {
 
 interface MovieInfo {
     _id: string;
-	thumbnail:string;
-	titleImage: string;
-	videoUrl: string;
+	thumbnail:string | undefined;
+	titleImage: string | undefined;
+	videoUrl: string | undefined;
 	movieInfo: {
 		title: string;
 		isOriginal: boolean;
