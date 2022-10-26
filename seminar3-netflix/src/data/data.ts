@@ -3,9 +3,9 @@ import { Movie } from "../type/type";
 export const movie: Movie = {
     "1":{
         _id: "1",
-		thumbnail:"<url>",
-		titleImage: "<url>",
-		videoUrl: "<url>",
+		thumbnail:"https://huiseon-bucket.s3.ap-northeast-2.amazonaws.com/surinam.jpeg",
+		titleImage: "https://huiseon-bucket.s3.ap-northeast-2.amazonaws.com/surinamLogo.png",
+		videoUrl: "https://huiseon-bucket.s3.ap-northeast-2.amazonaws.com/surinam.jpeg",
 		movieInfo: {
 			title: "수리남",
 			isOriginal: true,
@@ -27,9 +27,9 @@ export const movie: Movie = {
     },
     "2":{
         _id: "2",
-		thumbnail:"<url>",
-		titleImage: "<url>",
-		videoUrl: "<url>",
+		thumbnail:"https://huiseon-bucket.s3.ap-northeast-2.amazonaws.com/skycastle.jpeg",
+		titleImage: "https://huiseon-bucket.s3.ap-northeast-2.amazonaws.com/skycastleLogo.png",
+		videoUrl: "https://huiseon-bucket.s3.ap-northeast-2.amazonaws.com/skycastle.jpeg",
 		movieInfo: {
 			title: "스카이 캐슬",
 			isOriginal: false,
