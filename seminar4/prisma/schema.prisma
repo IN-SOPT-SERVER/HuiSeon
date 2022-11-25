@@ -7,9 +7,34 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id       Int     @id @unique @default(autoincrement())
-  userName String
+model author {
+  id              Int    @id @default(autoincrement())
+  name            String @db.VarChar(20)
+  authorIntroduct String
+  book            book[]
+}
+
+model book {
+  id            Int     @id @default(autoincrement())
+  title         String  @db.VarChar
+  image         String  @db.VarChar(100)
+  description   String
+  bookIntroduct String
+  authorId      Int?
+  author        author? @relation(fields: [authorId], references: [id], map: "book_author_id_fk")
+}
+
+model category {
+  id          Int    @id @default(autoincrement())
+  category    String @db.VarChar(20)
+  description String @db.VarChar
+  image       String @db.VarChar
+}
+
+model User_Seminar {
+  id       Int    @id(map: "user_seminar_pk") @unique(map: "user_seminar_id_uindex") @default(autoincrement())
+  userName String @db.VarChar(100)
   age      Int?
-  email    String? @db.VarChar(400)
+  email    String @db.VarChar(400)
+  password String @db.VarChar(400)
 }
