@@ -5,6 +5,8 @@ import { auth } from "../middlewares";
 
 const router: Router = Router();
 
+//* 이름으로 유저 검색 - GET ~/api/user/search?keyword={}
+router.get("/search", userController.searchUserByName);
 router.get("/:userId", auth, userController.getUserById);
 //* 전체 유저 조회 - Get api/user
 router.get('/', userController.getAllUser);
@@ -18,7 +20,6 @@ router.post(
   [body("name").notEmpty(), body("email").notEmpty(), body("password").isLength({ min: 6 })],
   userController.createUser
 );
-
 //* 로그인 - POST api/user/signin
 router.post(
   "/signin",
