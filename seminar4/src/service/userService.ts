@@ -47,8 +47,11 @@ const signIn = async (userSignInDto: UserSignInDTO) => {
 };
 
 //* 유저 전체 조회
-const getAllUser = async () => {
-  const data = await prisma.user_Seminar.findMany();
+const getAllUser = async (page:number, limit: number) => {
+  const data = await prisma.user_Seminar.findMany({
+    skip: (page - 1) * limit,
+    take: limit,
+  });
 
   return data;
 };
@@ -84,6 +87,55 @@ const getUserById = async (userId: number) => {
 
   return user;
 };
+const searchUserByName = async (keyword: string, option: string) => {
+  //! 유저 최신순
+  if(option === 'desc') {
+    const data = await prisma.user_Seminar.findMany({
+      where:{
+        userName: {
+          contains: keyword,
+        },
+      },
+      orderBy: {
+        createdAt: 'desc',
+      }
+    });
+  
+    return data;
+  }
+  //! 유저 오래된순
+  if(option === 'asc'){
+    const data = await prisma.user_Seminar.findMany({
+      where:{
+        userName: {
+          contains: keyword,
+        },
+      },
+      orderBy: {
+        createdAt: 'asc',
+      }
+    });
+  
+    return data;
+  }
+
+  if(option === 'nameDesc'){
+    const data = await prisma.user_Seminar.findMany({
+      where:{
+        userName: {
+          contains: keyword,
+        },
+      },
+      orderBy: {
+        userName: 'desc',
+      }
+    });
+  
+    return data;
+  }
+
+  
+};
 
 const userService = {
   createUser,
@@ -92,6 +144,7 @@ const userService = {
   deleteUser,
   getUserById,
   signIn,
+  searchUserByName,
 };
 
 export default userService;
